@@ -16,7 +16,7 @@ The Utility Account Id is a unique identifier that, as far as I can tell, is not
 1. Login to [Comed](https://secure.comed.com/pages/login.aspx)
 2. Open Fiddler and start capturing traffic
 3. Open the [Comed 'View My Usage' page](https://secure.comed.com/MyAccount/MyBillUsage/pages/secure/ViewMyUsage.aspx)
-4. Look for a request URL that looks like(the account id is highlighted):
+4. Look for a request URL that looks like this(the account id is highlighted):
 
 cec.opower.com/ei/edge/apis/DataBrowser-v1/cost/utilityAccount/**92a35d5d-be12-12e4-336a-c32867e62e64**?startDate=2015-07-30T05%3A00%2B0000&endDate=2017-07-29T05%3A00%2B0000&aggregateType=bill
 
