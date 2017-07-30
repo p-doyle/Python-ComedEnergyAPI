@@ -7,7 +7,7 @@ def loginToComedAndAuthSAML(comedUesrname, comedPassword):
 
     mySession = requests.session()
 
-    
+
     data = {
         'USER': comedUesrname,
         'PASSWORD': comedPassword,
@@ -32,8 +32,8 @@ def loginToComedAndAuthSAML(comedUesrname, comedPassword):
 
     # this will redirect to a url like:
     # https://secure.comed.com/fed/Pages/saml2sso.aspx?SAMLRequest=asdf
-    samlURL = response2.url  
-    response3 = mySession.get(samlURL, allow_redirects=True)
+    samlURL = response2.url
+    response3 = mySession.get(samlURL)
 
 
     # need to pull the SAMLRsponse and RelayState from the request response so we can use it in the next one
@@ -47,7 +47,7 @@ def loginToComedAndAuthSAML(comedUesrname, comedPassword):
 
     # this will authenticate the session
     samlURL = 'https://sso.opower.com/sp/ACS.saml2'
-    response4 = mySession.post(samlURL, data=data4, allow_redirects=True)
+    response4 = mySession.post(samlURL, data=data4)
 
 
     # return the auth'd session so it can be used for other requests
@@ -55,7 +55,7 @@ def loginToComedAndAuthSAML(comedUesrname, comedPassword):
 
 
 def sendUsageRequest(startDate, endDate, dataPeriod, utilityAccountId):
-    
+
     startDateStr = datetime.datetime.strftime(startDate, '%Y-%m-%dT%H:00+0000')
     endDateStr = datetime.datetime.strftime(endDate, '%Y-%m-%dT%H:00+0000')
 
@@ -66,6 +66,6 @@ def sendUsageRequest(startDate, endDate, dataPeriod, utilityAccountId):
     }
 
     requestDataURL = 'https://cec.opower.com/ei/edge/apis/DataBrowser-v1/cost/utilityAccount/{}'.format(utilityAccountId)
-    response = authedSession.get(requestDataURL, allow_redirects=True, params=requestParams)
+    response = authedSession.get(requestDataURL, params=requestParams)
 
     return json.loads(response.text)
