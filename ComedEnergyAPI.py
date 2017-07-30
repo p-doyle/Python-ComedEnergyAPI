@@ -54,7 +54,7 @@ def loginToComedAndAuthSAML(comedUesrname, comedPassword):
     return mySession
 
 
-def sendUsageRequest(startDate, endDate, dataPeriod, utilityAccountId):
+def sendUsageRequest(authedSession, startDate, endDate, dataPeriod, utilityAccountId):
 
     startDateStr = datetime.datetime.strftime(startDate, '%Y-%m-%dT%H:00+0000')
     endDateStr = datetime.datetime.strftime(endDate, '%Y-%m-%dT%H:00+0000')
