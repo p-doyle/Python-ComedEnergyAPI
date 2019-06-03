@@ -1,5 +1,7 @@
 # Python-ComedEnergyAPI
+## No longer in active development, use at your own risk!
 Script for pulling Smart Meter energy usage data from Comed's API
+
 
 Reverse engineered using [Fiddler](http://www.telerik.com/fiddler)
 
